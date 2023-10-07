@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生态保护</title>
+    <link rel="stylesheet" href="./styles/2.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+</head>
+<style>
+    *{
+    margin:0;
+    padding:0;
+}
+.search{
+    padding:10px;   
+    padding-left: 5%;
+}
+.search_box{
+    width:200px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    padding:10px; 
+    vertical-align:middle;  
+}
+.search p{
+    display:inline-block; 
+    vertical-align:middle;
+    margin-left:10px;
+}
+.search p span{
+    padding:8px;
+    border-radius:4px;
+    color:orange;
+    cursor: pointer;
+}
+.search .active{
+    color:#fff;
+    background:orange;
+}
+.userList ul li{
+    padding:10px;
+    border-bottom:1px solid #ccc;
+    list-style:none;
+    overflow:hidden;
+}
+.userList ul li img{
+    float:left;
+    width:130px;
+    height: 120px;
+    border-radius: 16px;
+    margin-right: 3%;
+}
+.userList ul li p {
+    margin-bottom: 3%;
+}
+.userList{
+    padding-top: 1%;
+    width: 94%;
+    padding-left: 3%;
+}
+hr.solid {
+  border-top: 3px solid #efa512ec;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 2%;
+}
+.pp{
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+color: gray;
+line-height: 20px;
+}
+.ppp{
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+line-height: 30px;
+}
+a{
+color: orange;
+text-decoration:none;
+}
+button{
+    float: right;
+    background-color: white; 
+    color: black; 
+    border: 2px solid orange;
+    width: 80px;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+button:hover{
+    background-color: orange;
+    color: white;
+
+}
+
+
+
+</style>
+
+<body>
+
+    <div class="top sticky">
+        <nav class="navbar bg-dark navbar-dark" style="margin-bottom: 0;">
+            <a class="logo f1" href="./home.html"><img class="topImg" src="./Photo/logo1.png"
+                    style="height: 30px;"><span style="color: #989898f5; font-weight: 500;">|</span><img
+                    class="topImg" src="./Photo/logo2.png" style="height: 30px;"></a>
+                    <a href="./home.html"><svg class="bi bi-box-arrow-left" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="
+                    float: right;
+                    margin-right: 20px;
+                    margin-top: 5px;
+                    color: #da9a10;">
+                      <path fill-rule="evenodd" d="M4.354 11.354a.5.5 0 0 0 0-.708L1.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>
+                      <path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0 0 1h9a.5.5 0 0 0 .5-.5z"/>
+                      <path fill-rule="evenodd" d="M14 13.5a1.5 1.5 0 0 0 1.5-1.5V4A1.5 1.5 0 0 0 14 2.5H7A1.5 1.5 0 0 0 5.5 4v1.5a.5.5 0 0 0 1 0V4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-1.5a.5.5 0 0 0-1 0V12A1.5 1.5 0 0 0 7 13.5h7z"/>
+                    </svg></a>
+            
+        </nav>
+    </div>
+    
+    
+    <div class="wrapper">
+        <div>
+            <img src="./Photo/生态保护.jpg" alt="生态保护" style="width: 100%;">
+        </div>
+        
+        <div class="userList">
+            <!-- 选项动态生成 -->
+            <ul></ul>
+        </div>
+     </div>
+     
+</body>
+
+<script>
+    var placeArr = [
+    {name:'新时代中国调研行·黄河篇｜“黄河之肾”的生态蝶变',src:'生态1.png',des:'玛曲藏语意为“黄河”。作为全国唯一一个以黄河命名的县，甘肃省甘南藏族自治州玛曲县地处青藏高原东北边缘，占地562万亩的玛曲湿地是世界上保存最完整的湿地之一，黄河环绕玛曲全境433公里，水源补给量占黄河源区总径流量的58.7%，占黄河流域总径流量的六分之一，是黄河上游重要的水源涵养区和生态功能区，被誉为“黄河之肾”。',type:'three',url:'http://www.xinhuanet.com/2021-05/28/c_1127504770.htm'},
+    {name:'景美河畅绿意浓——河南黄河流域生态保护和高质量发展观察',src:'生态2.png',des:'河南省林业局相关负责人介绍，沿黄复合型生态廊道集防汛、生态、休闲、交通、高效农业等功能于一体，目前已绿化11.5万亩，干流右岸基本贯通。',type:'three',url:'https://new.qq.com/rain/a/20200918A07KJS00'},
+    {name:'风清柳绿胜景现——山东书写黄河下游生态保护新篇',src:'生态3.png',des:'初秋时节，山东济南槐荫黄河大堤沿线在各种林木的装点下，绿意尽显。骑上一辆共享单车，沿堤坝道路穿梭，畅享黄河之美，成为很多市民的时尚运动。“近些年，黄河真是一年一个样儿。过去一起大风就尘土飞扬的日子一去不复返了。”从小在黄河边上长大的市民王先生，望着眼前奔流向东的河水，由衷感慨道。',type:'one',url:'https://www.dahepiao.com/jingqulvyou1/20220418248487.html'},
+    {name:'描绘黄河生态新画卷——黄河沿岸水保护见闻',src:'生态4.png',des:'黄河，自巴颜喀拉山的冰雪之中流出，汇集千万条溪涧河川，穿越九省区滋养着中华文明。在“共同抓好大保护，协同推进大治理”理念引领下，新一代黄河“治水人”通过不懈努力修复生态、提升水质、合理用水。一幅人与自然和谐共生的画卷正在黄河沿岸徐徐展开。',type:'one',url:'https://www.dahepiao.com/jingqulvyou1/20230918419134.html'},
+    
+    ]
+var oUl = document.getElementsByTagName('ul')[0],
+    OInput = document.getElementsByClassName('search_box')[0],
+    oP = document.getElementsByTagName('p')[0];
+
+function renderPage(list){
+    var str = '';
+    list.forEach((el,index)=> {
+        str += `<li>
+            <img src = "./Photo/`+ el.src + `">
+            <p style="font-weight:bold;font-size:18px;" class="ppp" >` + el.name + `</p>
+            <p class="pp">` + el.des + `</p>
+            <button><a href="`+ el.url + `">查看详情</a></button>
+        </li>`
+    });
+    oUl.innerHTML = str
+}
+renderPage(placeArr);
+
+var state = {
+    text:'',
+    type:'all',
+}
+OInput.oninput = function(){
+    state.text = this.value;
+    renderPage(lastFilter())
+}
+function filterText(text,arr){
+    return arr.filter(function(ele,index){
+        return ele.name.indexOf(text) > -1
+    })
+}
+oP.addEventListener('click',function(e){
+    if(e.target.nodeName == 'SPAN'){
+        state.type = e.target.getAttribute('type'); 
+        document.getElementsByClassName('active')[0].className = null;
+        e.target.className = 'active';
+        renderPage(lastFilter())
+    }
+},false)
+function filterSex(type,arr){
+    if(type == 'all'){
+        return arr
+    }else{
+        return arr.filter(function(ele,index){
+            return type == ele.type
+        })
+    }  
+}
+function combineFilterFunc(obj,arr){
+    return function(){
+        var lastArr = arr;
+        for(prop in obj){
+            lastArr = obj[prop](state[prop],lastArr)
+        }
+        return lastArr
+    }
+}
+var lastFilter = combineFilterFunc({text:filterText,type:filterSex},placeArr)
+
+</script>
+
+</html>

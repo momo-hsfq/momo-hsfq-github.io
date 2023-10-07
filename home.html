@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tutorial : Portfolio Flipping Slider Using jQuery & CSS3">
+    <meta name="author" content="Webstuffshare">
+    <title>黄河</title>
+    <!--    <link rel="stylesheet" href="./iconfont/iconfont.css">-->
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/js/bootstrap.js">
+    <!-- 顶部，折叠栏2.css -->
+    <link rel="stylesheet" href="./styles/2.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <!-- 轮播图 -->
+    <link rel="stylesheet" href="./styles\swiper\swiper.min.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <!-- 文化资讯 -->
+    <link rel="stylesheet" href="./styles/zixun.css">
+    <!-- 文化艺术 -->
+    <link rel="stylesheet" href="./styles/demo.css">
+    <link rel="stylesheet" href="./styles\swiper\swiper.min.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <!-- 美食 -->
+    <link rel="stylesheet" href="./首图.css">
+    <link rel="stylesheet" href="./styles/黄河美食.css">
+    <!-- 底部 -->
+    <!-- <link rel="stylesheet" href="./styles/黄河文化资讯导航图.css"> -->
+    <script src="javascript/modernizr.custom.34807.js"></script>
+    <script src="./bootstrap-3.4.1-dist/js/jquery.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="./bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+    .travel_icon_list li {
+        list-style: none;
+        float: left;
+    }
+
+    .seak-conatiner {
+        position: relative;
+        width: 100%;
+        background: url(../img/底部.jpg);
+        margin-top: 20px;
+    }
+
+    .seak-conatiner::after {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        content: "";
+        background-color: rgba(0, 0, 0, .7);
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .seak-conatiner .seak-title {
+        width: 230px;
+        position: relative;
+        z-index: 1;
+        margin: 0 auto;
+        padding-bottom: 1px;
+        text-align: center;
+        font-size: 20px;
+        font-family: "微软雅黑";
+        color: white;
+    }
+
+    .seak-conatiner .seek-title {
+        width: 230px;
+        position: relative;
+        z-index: 1;
+        margin: 0 auto;
+        padding-bottom: 1px;
+        text-align: center;
+        font-size: 15px;
+        font-family: "微软雅黑";
+        color: white;
+    }
+
+
+    .seak-conatiner .seak-content {
+        display: flex;
+        position: relative;
+        z-index: 1;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .seak-conatiner .seak-content li .dsc {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        white-space: nowrap;
+        width: 100%;
+        line-height: 30px;
+        font-family: "微软雅黑";
+        font-size: 15px;
+        color: white;
+        position: relative;
+    }
+
+    .seak-conatiner .seak-content li .dsc span {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+    }
+
+    .seak-conatiner .seak-content li img {
+        width: 25%;
+        height: auto;
+        object-fit: cover;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="containerWrap">
+        <!-- 折叠菜单 -->
+        <div class="top sticky">
+            <nav class="navbar bg-dark navbar-dark" style="margin-bottom: 0;">
+                <a class="logo f1" href="./home.html"><img class="topImg" src="./Photo/logo1.png"
+                        style="height: 30px;"><span style="color: #989898f5; font-weight: 500;">|</span><img
+                        class="topImg" src="./Photo/logo2.png" style="height: 30px;"></a>
+                <button class="navbar-toggler btn btn-lg bt-color sticky-icon" type="button" data-toggle="collapse"
+                    data-target="#collapsibleNavbar" style="border: 0;padding: 1px 16px;position: fixed;z-index: 9999;">
+                    <span class="navbar-toggler-icon" style="font-size: 20px;">
+                        <span class="iconfont icon-list1"></span>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse sticky" id="collapsibleNavbar"
+                    style="position: fixed; z-index:9999;margin-left: 60%;margin-top: 14%;;width: 40%;height: 100%;;background-color: #c0a16b;">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./黄河文化资讯导航图.html">文化资讯</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                      <a class="nav-link" href="#">教育教学</a>
+                    </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="./wenhuaDetail.html">文化艺术</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./黄河美食导航.html">文化美食</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./文旅线路.html">精品线路</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./生态.html">生态保护</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./国家文旅.html">国家文旅</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="./票务信息.html">票务信息</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./游客攻略.html">游客攻略</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">&nbsp&nbsp&nbsp&nbsp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">&nbsp&nbsp&nbsp&nbsp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">&nbsp&nbsp&nbsp&nbsp</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- 轮播图 -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./images/homeBanner1.png" alt />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/homeBanner2.png" alt />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/homeBanner3.png" alt />
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- 文化资讯 -->
+        <div class="seek-conatiner">
+            <div class="seek-title">​黄河文化资讯</div>
+            <div class="line"></div>
+            <ul class="seek-content">
+                <li>
+                    <a href="./黄河文化资讯导航图.html">
+                        <img src="./img/首页文化资讯1.jpg">
+                    </a>
+                    <a href="./文化资讯内容页1.html">
+                        <div class="dsc" >
+                            <span href="./文化资讯内容页/文化资讯内容页1.html"> 回溯华夏历史的源头:黄河文明与长江文明的较量</span>
+                            <i>04-09</i>
+                         </div>
+                    </a>
+                    <a href="./文化资讯内容页/文化资讯内容页2.html">
+                         <div class="dsc">
+                            <span>理论视野|大力弘扬黄河文化 推动文旅高质量发展</span>
+                            <i>04-07</i>
+                         </div>
+                    </a>
+                    <a href="./文化资讯内容页/文化资讯内容页3.html">
+                         <div class="dsc">
+                            <span>宁夏中卫大湾村:一个“复活”的村庄!</span>
+                            <i>04-02</i>
+                         </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./黄河文化资讯导航图.html">
+                        <img src="./img/首页文化资讯2.jpg" alt="">
+                    </a>
+                    <a href="./文化资讯内容页/文化风俗内容页1.html">
+                        <div class="dsc">
+                            <span> 黄河大集｜赶一次黄河大集 寻一次家乡至味</span>
+                            <i>08-21</i>
+                         </div>
+                    </a>
+                    <a href="./文化资讯内容页/文化风俗内容页2.html">
+                         <div class="dsc">
+                            <span> 黄河号子：为黄河文化留下闪光身影</span>
+                            <i>08-31</i>
+                         </div>
+                    </a>
+                    <a href="./文化资讯内容页/文化风俗内容页3.html">
+                         <div class="dsc">
+                            <span> 黄河流域冬至节的产生与变异</span>
+                            <i>09-05</i>
+                         </div>
+                      
+                    </a>
+                </li>
+                <li>
+                    <a href="./黄河文化资讯导航图.html">
+                        <img src="./img/首页文化资讯3.jpg" alt="">
+                    </a>
+                    <a href="./文化资讯内容页/人物文化内容页1.html">
+                        <div class="dsc">
+                           <span> 民间故事1</span>
+                           <i>08-28</i>
+                        </div>
+                    </a>
+                    <a href="./文化资讯内容页/人物文化内容页2.html">
+                        <div class="dsc">
+                            <span>民间故事2</span>
+                            <i>08-31</i>
+                         </div>
+                    </a>
+                    <a href="./文化资讯内容页/人物文化内容页4.html">
+                         <div class="dsc">
+                            <span>黄河九渡的历史故事</span>
+                            <i>09-02</i>
+                         </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 文化艺术 -->
+        <div id="container">
+
+            <span id="information" style="display:none">Your browser doesn't support CSS3 3D Transform</span>
+            <a href="./wenhuaDetail.html">
+                <h1 style="font: 20px Helvetica,Arial;font-weight: 600;color: #5a5a5a;">黄河文化艺术</h1>
+            </a>
+            <div class="line"></div>
+            <div id="portfolio"></div>
+
+            <ul id="portfolio-item">
+                <li><img src="images/yingshi1.png" alt="天下长河" /></li>
+                <li><img src="images/yingshi2.png" alt="黄河在咆哮" /></li>
+                <li><img src="images/yingshi3.png" alt="黄河绝恋" /></li>
+                <li><img src="images/yingshi4.png" alt="大河儿女" /></li>
+                <li><img src="images/yingshi5.png" alt="黄河英雄" /></li>
+                <li><img src="images/yingshi6.png" alt="青城缘" /></li>
+                <li><img src="images/yingshi7.png" alt="黄河人家" /></li>
+                <li><img src="images/yingshi8.png" alt="黄 河" /></li>
+                <li><img src="images/yingshi9.png" alt="大河之洲" /></li>
+                <li><img src="images/yingshi10.png" alt="天下黄河富宁夏" /></li>
+                <li><img src="images/yingshi11.png" alt="黄河宁 天下平" /></li>
+                <li><img src="images/yingshi12.png" alt="黄河安澜" /></li>
+                <li><img src="images/yingshi13.png" alt="黄河之魂" /></li>
+                <li><img src="images/yingshi14.png" alt="大运河之歌" /></li>
+                <li><img src="images/yingshi15.png" alt="跟着黄河入大海" /></li>
+                <li><img src="images/yingshi16.png" alt="大河之洲" /></li>
+            </ul>
+
+            <nav id="navigation">
+                <a href="#1" class="nav selected" data-page="1" style="margin-left: 13px;"><span
+                        style="font-size: 20px; ">1</span></a>
+                <a href="#2" class="nav" data-page="2"><span style="font-size: 20px;">2</span></a>
+                <a href="#3" class="nav" data-page="3"><span style="font-size: 20px;">3</span></a>
+                <a href="#4" class="nav" data-page="4"><span style="font-size: 20px;">4</span></a>
+            </nav>
+
+        </div>
+
+        <!-- 美食 -->
+        <div class="food-container">
+            <div class="wp-title_content">
+                <p style="white-space: normal;">
+                    <a href="./黄河美食导航.html"><strong
+                            style="color: #5a5a5a; font-weight: 600; font-size: 20px;">黄河流域美食</strong>
+                    </a>
+                </p>
+            </div>
+            <div class="line"></div>
+
+            <ul class="rowstyle1" style="top: 20px">
+                <div>
+                    <div class="rightstyle">
+                        <div>
+                            <div class="" style="overflow:hidden;">
+                                <ul>
+                                    <li>
+                                        <p><a href="./东营美食/黄河口大闸蟹.html">黄河口大闸蟹</a></p>
+                                    </li>
+                                    <li>
+                                        <p><a href="./东营美食/孤岛鲜鱼汤.html">孤岛鲜鱼汤</a></p>
+                                    </li>
+                                    <li>
+                                        <p><a href="./东营美食/史口王牌烧鸡.html">史口王牌烧鸡</a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="picture">
+                        <img src="./东营美食/Photo/鱼2.png" data-id="2"
+                            style="width: auto; height: 183px; top: 0px;  position: relative;">
+                    </div>
+                </div>
+                <div class="right-title">
+                    <meta content="telephone=no" name="format-detection">
+                    <nav>
+                        <div class="righttitle">
+                            <p style="text-align: center;">
+                                <span style="font-size: larger;"><strong>东营美食</strong></span>
+                            </p>
+                        </div>
+                    </nav>
+                </div>
+            </ul>
+            <!--    lll-->
+            <div class="rowstyle1" style="top: 30px;">
+                <div>
+                    <div class="rightstyle" style="left: 40px">
+                        <div>
+                            <div class="" style="overflow:hidden;">
+                                <ul>
+                                    <li>
+                                        <p><a href="./菏泽美食/单县羊肉汤.html">单县羊汤</a></p>
+                                    </li>
+                                    <li>
+                                        <p><a href="./菏泽美食/谢集罐子汤.html">谢集罐子汤</a></p>
+                                    </li>
+                                    <li>
+                                        <p><a href="./菏泽美食/郓城壮馍.html">郓城壮馍</a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="picture" style="left: 177px">
+                        <img src="./菏泽美食/Photo/单县羊肉汤2.png" data-id="2"
+                            style="width: auto; height: 183px; top: 0px; left: -45px; position: relative;">
+                    </div>
+                </div>
+                <div class="right-title" style=" left: 17px">
+                    <!--            <meta content="telephone=no" name="format-detection">-->
+                    <nav>
+                        <div class="righttitle">
+                            <p style="text-align: center;">
+                                <span style="font-size: larger;"><strong>菏泽美食</strong></span>
+                            </p>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+            <div class="rowstyle1" style="top: 40px;">
+                <div>
+                    <div class="rightstyle">
+                        <div>
+                            <div class="" style="overflow:hidden;">
+                                <ul>
+                                    <li>
+                                        <p><a href="./济南美食/商河老豆腐.html">商河老豆腐</a></p>
+                                    </li>
+                                    <li>
+                                        <p><a href="./济南美食/把子肉.html">把子肉</a></p>
+                                    </li>
+                                    <li>
+                                        <p><a href="./济南美食/油旋.html">油璇</a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="picture">
+                        <img src="./济南美食/Photo/把子肉2.png" data-id="2"
+                            style="width: auto; height: 183px; top: 0px; position: relative;">
+                    </div>
+                </div>
+                <div class="right-title">
+                    <meta content="telephone=no" name="format-detection">
+                    <nav>
+                        <div class="righttitle">
+                            <p style="text-align: center;">
+                                <span style="font-size: larger;"><strong>济南美食</strong></span>
+                            </p>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 黄河文化旅游 -->
+        <div class="travel" style="margin-top: 70px; height: 300px;">
+            <div class="travel_pic1">
+                <a href="./国家文旅.html"><img src="./Photo/黄河文化旅游主图.jpg" alt="黄河文化精品路线" style="width: 100%;"></a>
+            </div>
+
+            <div class="travel_icon_list">
+                <ul style="padding-left: 2%; padding-right: 0;">
+                    <li style="width: 24%;">
+                        <a href="./游客攻略.html">
+                        <img src="./Photo/icon1.gif" style="width: 100%;">
+                        <h5 align="center" style="margin: 0;">游客攻略</h5></a>
+                    </li>
+                    <li style="width: 24%;">
+                        <a href="./票务信息.html">
+                        <img src="./Photo/icon2.gif" style="width: 100%;">
+                        <h5 align="center" style="margin: 0;">票务信息</h5></a>
+                    </li>
+                    <li style="width: 24%;">
+                        <a href="./生态.html">
+                        <img src="./Photo/icon3.gif" style="width: 100%;">
+                        <h5 align="center" style="margin: 0;">生态保护</h5></a>
+                    </li>
+                    <li style="width: 24%;">
+                        <a href="./文旅线路.html">
+                        <img src="./Photo/icon4.gif" style="width: 100%;">
+                        <h5 align="center" style="margin: 0;">齐鲁文旅</h5></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="bottom_title" style="width: 100%; ">
+            <div style="display: inline;font-size: 14px;padding-left: 5%;">
+               游客攻略
+              </div>
+              <div style="display: inline;padding-left: 9%;font-size: 14px;">
+                票务信息
+              </div>
+              <div style="display: inline;font-size: 14px;padding-left: 8%;">
+                景点介绍
+              </div>
+              <div style="display: inline;font-size: 14px;padding-left: 9%;">
+                出行交通
+              </div>
+
+        </div> -->
+
+        </div>
+
+        <!-- 底部 -->
+        <div class="seak-conatiner">
+            <br>
+            <div class="seak-title">黄河文化旅游宣传平台</div><br>
+            <ul class="seak-content">
+                <br><br>
+                <div class="seek-title">联系电话: 17753010787</div>
+                <br><br>
+                <div class="seek-title">版权所有：山东大学技术团队</div>
+                <br><br>
+                <div class="seek-title">技术支持：山东大学技术团队</div><br><br><br>
+                <div class="seek-title">
+                    <img src="./img/底部2.jpg" style="height: auto; width: 30%;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="./img/底部2.jpg" style="height: auto; width: 30%;"><br><br>
+                </div>
+
+                <div class="seek-title">
+                    <a href="http://weixin.com">
+                        <img src="./img/底部3.jpg" style="height: auto; width: 15%;">
+                    </a>
+                    <a href="http://im.qq.com">
+                        <img src="./img/底部4.jpg" style="height: auto; width: 15%;">
+                    </a>
+                    <a href="http://weibo.com">
+                        <img src="./img/底部5.jpg" style="height: auto; width: 15%;">
+                    </a>
+                    <a href="http://douban.com">
+                        <img src="./img/底部6.jpg" style="height: auto; width: 15%;"><br><br>
+                    </a>
+                </div>
+            </ul>
+        </div>
+
+
+    </div>
+    <script src=".\styles\swiper\swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            // navigation: {
+            //     nextEl: '.swiper-button-next',
+            //     prevEl: '.swiper-button-prev',
+            // },
+        });
+    </script>
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="javascript/demo.js"></script>
+    <script src=".\styles\swiper\swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            // navigation: {
+            //     nextEl: '.swiper-button-next',
+            //     prevEl: '.swiper-button-prev',
+            // },
+        });
+    </script>
+    <script src="https://res.zvo.cn/translate/translate.js"></script>
+    <script>
+        translate.selectLanguageTag.show = false; //不出现的select的选择语言
+        translate.execute();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald|Lobster);
+
+body {
+  font-family: Oswald, Arial;
+  
+  color: #47473c;
+}
+
+a {
+  color: #47473c;
+  font-family: Lobster;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-family: Lobster;
+  font-weight: normal;
+  margin: 0;
+}
+
+#container {
+  margin: 0 auto;
+  text-align: center;
+  /* width: 1100px;
+max-width: 1100px;
+-webkit-perspective: 2000px;
+   -moz-perspective: 2000px;
+    -ms-perspective: 2000px;
+     -o-perspective: 2000px;
+        perspective: 2000px; */
+}
+
+#information {
+  margin-top: 1em;
+  display: block;
+  color: red;
+  font-size: 20px;
+}
+
+#navigation a {
+  display: inline-block;
+  line-height: 2em;
+  margin-right: 1em;
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  border-radius: 40px;
+  -webkit-transition: .3s ease-in;
+  -moz-transition: .3s ease-in;
+  -ms-transition: .3s ease-in;
+  -o-transition: .3s ease-in;
+  transition: .3s ease-in;
+}
+
+#navigation a.selected,
+#navigation a:hover {
+  background: rgba(0, 0, 0, .3);
+  text-decoration: none;
+}
+
+#portfolio-item {
+  display: none;
+}
+
+#portfolio {
+  margin-top: 15px;
+  margin-bottom: 3px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+#portfolio div {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  margin: 5px;
+  width: 176px;
+  height: 160px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, .3);
+}
+
+#portfolio div span {
+  text-align: left;
+  position: absolute;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  width: 115px;
+  padding: 7px 7px 7px;
+  z-index: 1;
+  left: -5px;
+  bottom: 3px;
+  font-size: 20px;
+  font-family: 华文隶书;
+}
+
+.animated {
+  -webkit-transition: .9s ease-out;
+  -moz-transition: .9s ease-out;
+  -ms-transition: .9s ease-out;
+  -o-transition: .9s ease-out;
+  transition: .9s ease-out;
+}
+
+.flipped-horizontal-right {
+  -webkit-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  -o-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+}
+
+.flipped-horizontal-left {
+  -webkit-transform: rotateY(-360deg);
+  -moz-transform: rotateY(-360deg);
+  -ms-transform: rotateY(-360deg);
+  -o-transform: rotateY(-360deg);
+  transform: rotateY(-360deg);
+}
+
+.flipped-vertical-top {
+  -webkit-transform: rotateX(360deg);
+  -moz-transform: rotateX(360deg);
+  -ms-transform: rotateX(360deg);
+  -o-transform: rotateX(360deg);
+  transform: rotateX(360deg);
+}
+
+.flipped-vertical-bottom {
+  -webkit-transform: rotateX(-360deg);
+  -moz-transform: rotateX(-360deg);
+  -ms-transform: rotateX(-360deg);
+  -o-transform: rotateX(-360deg);
+  transform: rotateX(-360deg);
+}
+
+/* ul li{
+    background: url(images/dumptruck_teaser.png);
+    background-repeat: no-repeat;background-size: cover;
+  } */
+
+.line {
+  width: 110px;
+  height: 4px;
+  margin: 7px 0px 5px 131px;
+  background-color: #F69C34;
+    /* text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+
+#portfolio > div:nth-child(1){
+  margin-left: -2px;
+}
+
+#portfolio > div:nth-child(2){
+  margin-right: -2px;
+}
+
+#portfolio > div:nth-child(3){
+  margin-left: -2px;
+}
+
+#portfolio > div:nth-child(4){
+  margin-right: -2px;
+}

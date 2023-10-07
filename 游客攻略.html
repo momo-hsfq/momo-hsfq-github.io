@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游客攻略</title>
+    <link rel="stylesheet" href="./styles/2.css">
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+</head>
+<style>
+    *{
+    margin:0;
+    padding:0;
+}
+.search{
+    padding:10px;   
+}
+.search_box{
+    width:200px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    padding:10px; 
+    vertical-align:middle;  
+}
+.search p{
+    display:inline-block; 
+    vertical-align:middle;
+    margin-left:10px;
+}
+.search p span{
+    padding:8px;
+    border-radius:4px;
+    color:orange;
+    cursor: pointer;
+}
+.search .active{
+    color:#fff;
+    background:orange;
+}
+.userList ul li{
+    padding:10px;
+    border-bottom:1px solid #ccc;
+    list-style:none;
+    overflow:hidden;
+}
+.userList ul li img{
+    float:left;
+    width:100%;
+    padding-bottom: 2%;
+    border-radius: 18px;
+}
+.userList ul li p {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.userList{
+    padding-top: 1%;
+    width: 94%;
+    padding-left: 3%;
+}
+hr.solid {
+  border-top: 3px solid #efa512ec;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 2%;
+}
+.pp{
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+color: gray;
+line-height: 20px;
+}
+a{
+color: orange;
+}
+
+
+
+</style>
+
+<body>
+
+    <div class="top sticky">
+        <nav class="navbar bg-dark navbar-dark" style="margin-bottom: 0;">
+            <a class="logo f1" href="./home.html"><img class="topImg" src="./Photo/logo1.png"
+                    style="height: 30px;"><span style="color: #989898f5; font-weight: 500;">|</span><img
+                    class="topImg" src="./Photo/logo2.png" style="height: 30px;"></a>
+                    <a href="./home.html"><svg class="bi bi-box-arrow-left" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="
+                    float: right;
+                    margin-right: 20px;
+                    margin-top: 5px;
+                    color: #da9a10;">
+                      <path fill-rule="evenodd" d="M4.354 11.354a.5.5 0 0 0 0-.708L1.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>
+                      <path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0 0 1h9a.5.5 0 0 0 .5-.5z"/>
+                      <path fill-rule="evenodd" d="M14 13.5a1.5 1.5 0 0 0 1.5-1.5V4A1.5 1.5 0 0 0 14 2.5H7A1.5 1.5 0 0 0 5.5 4v1.5a.5.5 0 0 0 1 0V4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-1.5a.5.5 0 0 0-1 0V12A1.5 1.5 0 0 0 7 13.5h7z"/>
+                    </svg></a>
+            
+        </nav>
+    </div>
+        
+    
+    <div>
+        <img src="./Photo/游客攻略.jpg" alt="游客攻略" style="width: 100%;">
+    </div>
+    
+    <div class="wrapper">
+        <div class="search">
+            <input type="hidden" class = "search_box" placeholder = "请输入旅游品类">
+            <p>
+                <span type = "one">一日游</span>
+                <span type = "two">二日游</span>
+                <span type = "three">三日游</span>
+                <span type = "deep">深度游</span>
+                <span type = "all" class = "active">全部</span>
+            </p>
+        </div>
+        <hr class="solid" align="center">
+        <div class="userList">
+            <!-- 选项动态生成 -->
+            <ul></ul>
+        </div>
+     </div>
+     
+</body>
+
+<script>
+    var placeArr = [
+    {url:'https://you.ctrip.com/travels/wuzhong890/4019454.html',name:'黄河金岸，水韵吴忠',src:'二日游1.png',des:'大家都再说游在宁夏，吃在吴忠，当地的美食那可真的可以娓娓道来，一个集吴忠各种美食于一体的宝藏地方——光耀美食街。',type:'two'},
+    {url:'https://www.mafengwo.cn/i/16874587.html',name:'赏峡谷奇观，览黄河魅力',src:'二日游2.png',des:'雨岔大峡谷更算是黄土高原的地缝，大约几亿万年前，陕北发生过强烈的地震，使一黄土大山分开一条大裂缝，又经过几百年雨水冲刷，慢慢的形成这样一个峡谷，与美国的羚羊大峡谷极其相似。',type:'two'},
+    {url:'https://www.mafengwo.cn/sales/8853270.html',name:'河南郑州黄河文化公园博物院一日游',src:'一日游1.png',des:'探访博物院，见证泱泱华夏文明历史；寻根母亲河，聆听黄河故事，体验黄河文化；惬意的行程，细细品慢慢游；全新的组合，追寻老家河南的古代文明和现代文化',type:'one'},
+    {url:'https://new.qq.com/rain/a/20211117A021O800',name:'黄河九曲第一湾，热尔大坝草原上一颗璀璨明珠',src:'三日游1.png',des:'D1  成都 — 阿坝州  景点：查真梁子 - 红原大草原 - 月亮湾 - 若尔盖大草原 - 草原日落 - 天文望远镜夜观星像 - 孔明灯祈福 - 九曲黄河第一湾（唐克乡）',type:'three'},
+    {url:'https://www.mafengwo.cn/gonglve/ziyouxing/209314.html',name:'带你走黄河：永和县的黄河情怀',src:'一日游2.png',des:'永和县，隶属于山西省临汾市，地处吕梁山脉南端，是黄河边上的一座小县城。“永和”典出“永履和乐”语。',type:'one'},
+    {url:'http://www.mafengwo.cn/gonglve/ziyouxing/34500.html',name:'去兰州邂逅黄河，黄河游玩秘籍待查收！',src:'一日游3.png',des:'兰州，一个“一条河、一碗面、一本书”的城市。除了脍炙人口的兰州拉面和为人称道的《读者》杂志之外，黄河更是孕育这座城市不可不说的母亲河。今天天下游就带你解锁兰州的黄河玩法。',type:'one'},
+    {url:'https://www.mafengwo.cn/i/23427724.html?sys_ver=',name:'塞上江南，神奇而绚烂，天下黄河富宁夏',src:'一日游4.png',des:'从蒙昧到开化 ，从野蛮到文明。千百年来，滔滔黄河水滋养着广袤的中华大地，锻造出鬼斧神工的神奇造化，更缔造了恢弘灿烂的中华文明。',type:'one'},
+    {url:'https://www.mafengwo.cn/i/22912901.html?sys_ver=',name:'自驾红原+若尔盖3日游',src:'三日游2.png',des:'先走茂县到若尔盖县，再走红原县、理县回程的。',type:'three'},
+    {url:'https://www.mafengwo.cn/i/23443341.html?sys_ver=',name:'白日依山尽，黄河入海流，山西永济鹳雀楼普救寺黄河大铁牛',src:'一日游5.png',des:'鹳雀楼，我自然是冲着王之涣的诗过来的，虽然那时的鹳雀楼没有了，但文化深沉还在，寄托一份对这首诗的喜爱，所以特地来看鹳雀楼。白日依山尽，黄河入海流，欲穷千里目，更上一层楼。',type:'one'},
+    {url:'https://www.mafengwo.cn/i/22841834.html?sys_ver=',name:'黄河坛一日游',src:'一日游6.png',des:'黄河坛全称是“中华黄河坛”，也称为“中华黄河圣坛”，是黄河金岸的标志性建筑，位于宁夏回族自治区吴忠青铜峡市，为了礼敬黄河、祭拜黄河、感恩黄河，黄河坛于2010年5月开工建设，2011年4月底建成，总设计是冯钦铎教授。',type:'one'},  
+    {url:'https://www.mafengwo.cn/i/23728181.html?sys_ver=',name:'成都到九曲黄河第一湾',src:'二日游3.png',des:'晚上看日落、拍照、登一个三层的塔观景。',type:'two'},
+    {url:'https://www.mafengwo.cn/i/21176188.html?sys_ver=',name:'“寻九曲黄河，品晋商文化”',src:'深度游1.png',des:'为什么选择去碛口古镇呢？首先这是一个相对小众的景点，九曲黄河第一镇。碛口，黄河的一处浅滩地带。历史上行船驶入碛口便停滞无法前行，只能靠人拉着驶过。所以碛口历史上是交通要地，来往商人络绎不绝，都需在碛口停留。',type:'deep'},
+    {url:'https://www.mafengwo.cn/i/21757603.html?sys_ver=',name:'春回滨州——慢游孙子故里，领略黄河文化',src:'深度游2.png',des:'滨州市是山东省下辖地级市，位于山东省北部、鲁北平原、黄河三角洲腹地。交通优势明显，具有依河傍海的优势，是连接苏、鲁、京、津的重要通道 ，是国家级交通运输主枢纽城市。',type:'deep'},    
+]
+var oUl = document.getElementsByTagName('ul')[0],
+    OInput = document.getElementsByClassName('search_box')[0],
+    oP = document.getElementsByTagName('p')[0];
+
+/* Dom树渲染 每次触发事件，Dom树都要重新渲染一次*/
+function renderPage(list){
+    var str = '';
+    list.forEach((el,index)=> {
+        str += `<li>
+            <img src = "./Photo/`+ el.src + `">
+            <p style="font-weight:bold;font-size:18px;line-height:30px" >` + el.name + `</p>
+            <p class="pp">` + el.des + `</p>
+            <a href="`+ el.url + `">了解更多</a>
+        </li>`
+    });
+    oUl.innerHTML = str
+}
+renderPage(placeArr);
+
+/* 存储当前的状态：text即input中的内容 和 性别的选项 */
+var state = {
+    text:'',
+    type:'all',
+}
+
+//根据input筛选内容
+OInput.oninput = function(){
+    state.text = this.value; //将input的内容存储到状态机中
+    renderPage(lastFilter())
+}
+//根据文字筛选
+function filterText(text,arr){
+    return arr.filter(function(ele,index){
+        return ele.name.indexOf(text) > -1
+    })
+}
+//根据点击span筛选性别
+oP.addEventListener('click',function(e){
+    if(e.target.nodeName == 'SPAN'){
+        state.type = e.target.getAttribute('type'); //将性别存储到状态机中
+        document.getElementsByClassName('active')[0].className = null;
+        e.target.className = 'active';
+        renderPage(lastFilter())
+    }
+},false)
+//根据性别筛选
+function filterSex(type,arr){
+    if(type == 'all'){
+        return arr
+    }else{
+        return arr.filter(function(ele,index){
+            return type == ele.type
+        })
+    }  
+}
+//合并 性别和input内容的选项
+function combineFilterFunc(obj,arr){
+    return function(){
+        var lastArr = arr;
+        for(prop in obj){
+            lastArr = obj[prop](state[prop],lastArr)
+        }
+        return lastArr
+    }
+}
+var lastFilter = combineFilterFunc({text:filterText,type:filterSex},placeArr)
+
+// var index=0;
+//     //效果
+//     function ChangeImg() {
+//         index++;
+//         var a=document.getElementsByClassName("img-slide");
+//         if(index>=a.length) index=0;
+//         for(var i=0;i<a.length;i++){
+//             a[i].style.display='none';
+//         }
+//         a[index].style.display='block';
+//     }
+//     //设置定时器，每隔两秒切换一张图片
+//     setInterval(ChangeImg,3000);
+</script>
+
+</html>

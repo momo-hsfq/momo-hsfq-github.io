@@ -1,0 +1,107 @@
+* {
+    /* margin: 0; */
+    /* padding: 0; */
+}
+a {
+    text-decoration: none;
+}
+
+
+
+img {
+    border: 0;
+    /*添加以下属性是解决图片在微信浏览器下默认转换效果造成页面模糊*/
+    -webkit-transform: scale(1)rotate(0)translate3d(0,0,0);
+    transform: scale(1)rotate(0)translate3d(0,0,0);
+}
+
+div,p,img,ul,ol,li,form,input,label,span,dl,dt,dd,h1,h2,h3,h4,h5,h6 {
+     margin: 0;
+     padding: 0;
+}
+.food-container {
+    width: 100%;
+    margin-top: 13px;
+    /* overflow: hidden; */
+}
+
+.wp-title_content{
+    color: #0f0f0f;
+    overflow-wrap: break-word;
+    padding: 0px;
+    border-color: transparent;
+    border-width: 1px;
+    /*width: px;*/
+    text-align: center;
+    font-size: x-large;
+}
+.rowstyle1 {
+    left: 6px;
+    top: 80px;
+    position: relative;
+    z-index: 100;
+    width: 360px;
+    height: 184px;
+    border-style:dotted;
+    border-width:2px;
+    border-color:#888888;
+    text-align: center;
+    overflow: hidden;
+}
+
+.rightstyle{
+
+    left: 220px;
+    top: 60px;
+    position: absolute;
+    z-index: 206;
+    width: 138px;
+    height: 96px;
+}
+.rightstyle p{
+    width: 99px;
+    font-family: 楷体;
+    font-size: larger;
+    line-height: 32px;
+    position: relative;
+    overflow: hidden;
+}
+.picture {
+    overflow: hidden;
+    border-color: transparent;
+    border-width: 1000px;
+    width: 183px;
+    height: 183px;
+    position: relative;
+}
+.right-title{
+    left: 195px;
+    top: 16px;
+    position: absolute;
+    z-index: 100;
+    width: 150px;
+    height: 25px;
+    overflow: hidden;
+}
+.righttitle{
+    overflow-wrap: break-word;
+    padding: 0px;
+    border-color: transparent;
+    border-width: 0px;
+    height: 25px;
+    width: 150px;
+    border-style: solid;
+    overflow: hidden;
+}
+
+
+
+a:link {color:black;}      /* 未访问链接*/
+a:visited {color:black;}  /* 已访问链接 */
+a:hover {color:#c0a16b;}  /* 鼠标移动到链接上 */
+a:active {color:#F69C34;}  /* 鼠标点击时 */
+a:link {text-decoration:none;}    /* unvisited link */
+a:visited {text-decoration:none;} /* visited link */
+a:hover {text-decoration:underline;}   /* mouse over link */
+a:active {text-decoration:underline;}  /* selected link */
+

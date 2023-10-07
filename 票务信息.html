@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>票务信息</title>
+    <link rel="stylesheet" href="./styles/2.css">
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .search {
+        padding: 10px;
+        padding-left: 5%;
+    }
+
+    .search_box {
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        vertical-align: middle;
+    }
+
+    .search p {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+
+    .search p span {
+        padding: 8px;
+        border-radius: 4px;
+        color: orange;
+        cursor: pointer;
+    }
+
+    .search .active {
+        color: #fff;
+        background: orange;
+    }
+
+    .userList ul li {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        list-style: none;
+        overflow: hidden;
+    }
+
+    .userList ul li img {
+        float: left;
+        width: 130px;
+        height: 120px;
+        border-radius: 16px;
+        margin-right: 3%;
+    }
+
+    .userList ul li p {
+        margin-bottom: 3%;
+    }
+
+    .userList {
+        padding-top: 1%;
+        width: 94%;
+        padding-left: 3%;
+    }
+
+    hr.solid {
+        border-top: 3px solid #efa512ec;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 2%;
+    }
+
+    .pp {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        color: gray;
+        line-height: 20px;
+    }
+
+    .ppp {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        line-height: 30px;
+    }
+
+    a {
+        color: orange;
+        text-decoration: none;
+    }
+
+    button {
+        float: right;
+        background-color: white;
+        color: black;
+        border: 2px solid orange;
+        width: 80px;
+        height: 30px;
+        font-size: 16px;
+        border-radius: 6px;
+    }
+
+    button:hover {
+        background-color: orange;
+        color: white;
+
+    }
+</style>
+
+<body>
+
+    <div class="top sticky">
+        <nav class="navbar bg-dark navbar-dark" style="margin-bottom: 0;">
+            <a class="logo f1" href="./home.html"><img class="topImg" src="./Photo/logo1.png"
+                    style="height: 30px;"><span style="color: #989898f5; font-weight: 500;">|</span><img
+                    class="topImg" src="./Photo/logo2.png" style="height: 30px;"></a>
+                    <a href="./home.html"><svg class="bi bi-box-arrow-left" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="
+                    float: right;
+                    margin-right: 20px;
+                    margin-top: 5px;
+                    color: #da9a10;">
+                      <path fill-rule="evenodd" d="M4.354 11.354a.5.5 0 0 0 0-.708L1.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>
+                      <path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0 0 1h9a.5.5 0 0 0 .5-.5z"/>
+                      <path fill-rule="evenodd" d="M14 13.5a1.5 1.5 0 0 0 1.5-1.5V4A1.5 1.5 0 0 0 14 2.5H7A1.5 1.5 0 0 0 5.5 4v1.5a.5.5 0 0 0 1 0V4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-1.5a.5.5 0 0 0-1 0V12A1.5 1.5 0 0 0 7 13.5h7z"/>
+                    </svg></a>
+            
+        </nav>
+    </div>
+
+
+    <div class="wrapper">
+        <div>
+            <img src="./Photo/票务信息导航.jpg" alt="票务信息" style="width: 100%;">
+        </div>
+        <div class="search">
+            <input class="search_box" placeholder="搜索景点/演艺/展览" style="width: 30%;padding-left: 2%;">
+            <p style="width: 60%;">
+                <span type="one">景点</span>
+                <span type="two">演艺</span>
+                <span type="three">展览</span>
+                <span type="all" class="active">全部</span>
+            </p>
+        </div>
+        <hr class="solid" align="center">
+        <div class="userList">
+            <!-- 选项动态生成 -->
+            <ul></ul>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    var placeArr = [
+        { name: '黄河珍宝——沿黄九省（区）文物精品展', src: '票务9.png', des: '在郑州，体会华夏古国的神秘；在洛阳，看盛世隋唐的辉煌；在开封，感受梦华大宋的气象。”前不久召开的2021中国（郑州）国际旅游城市市长论坛上，河南文旅发展的新IP“三座城、三百里、三千年”备受瞩目，让世界听到了河南加快打造全球探寻体验华夏历史文明重要窗口的“最新表达”。', type: 'three', url: 'http://www.xinhuanet.com/2021-05/28/c_1127504770.htm' },
+        { name: '“陶寺·石峁的考古揭示”展览', src: '票务10.png', des: '9月18日，值习近平总书记在黄河流域生态保护和高质量发展座谈会上讲话一周年之际，为了讲好“黄河”故事，延续历史文脉，在山西省文物局、陕西省文物局的合作与指导下，“黄河文明的标识——陶寺·石峁的考古揭示”展览在山西博物院开展。', type: 'three', url: 'https://new.qq.com/rain/a/20200918A07KJS00' },
+        { name: '黄河口生态旅游区', src: '票务1.png', des: '黄河口生态旅游区位于东营市东北部的黄河入海口，这里拥有一片广袤的滨海滩涂和河口湿地，生长着一望无际的芦苇和“红地毯”。', type: 'one', url: 'https://www.dahepiao.com/jingqulvyou1/20220418248487.html' },
+        { name: '沙坡头旅游区黄河区南区', src: '票务2.png', des: '沙坡头旅游景区位于宁夏回族自治区中卫市，集大漠、黄河、高山、绿洲为一处，具西北风光之雄奇，兼江南景色之秀美。沙坡头景区分为黄河区和沙漠区，黄河区包含羊皮筏', type: 'one', url: 'https://www.dahepiao.com/jingqulvyou1/20230918419134.html' },
+        { name: '黄河九曲第一湾', src: '票务3.png', des: '黄河将阿坝州阿坝县,若尔盖县,红原县,松潘县和甘孜州石渠县四川5县一揽入怀,在无边的草原上勾勒出了独一无二的九曲第一湾。', type: 'one', url: 'https://www.dahepiao.com/jingqulvyou1/20220507244310.html' },
+        { name: '舞蹈史诗《黄河》', src: '票务7.png', des: '今日开票 | 张继钢作品：大型舞蹈史诗《黄河》即将“奔涌”入京！ ', type: 'two', url: 'https://www.sohu.com/a/677756170_575540' },
+        { name: '甘肃黄河剧院《丝路花雨》', src: '票务8.png', des: '中国经典舞剧《丝路花雨》在中国和世界享有“二十世纪华人舞蹈经典作品”、“中国舞剧史上里程碑”、“中国民族舞剧的典范”、“东方的《天鹅湖》“中国舞剧之最”等诸多美誉', type: 'two', url: 'http://lz.bendibao.com/xiuxian/202327/59703.shtm' },
+        { name: '黄河三角洲动物园', src: '票务4.png', des: '走进东营黄河三角洲动物园，如同来到了自然野外，在这里，有着超百种珍稀野生动物，你可以与那些只能在电视里看到的动物近距离接触，感受久违的自然之乐，同时黄河三', type: 'one', url: 'https://www.dahepiao.com/jingqulvyou1/20220810289874.html' },
+        { name: '兰州黄河游轮', src: '票务5.png', des: '兰州黄河游轮被称赞为天下黄河第一轮，黄河游轮的码头紧挨着中山桥，对面就是兰州著名的白塔山公园，乘上邮轮，黄河母亲温柔可亲，驻足倾听母亲河的呢喃细语；远看水', type: 'one', url: 'https://www.dahepiao.com/jingqulvyou1/20230830239835.html' },
+        { name: '银川黄河音乐节', src: '票务6.png', des: '最美母亲河畔，巍峨贺兰山脚下，一场精彩多元的音乐盛宴即将开启！', type: 'two', url: 'https://www.dahepiao.com/yanchupiaowu1/yinlejie/20200827154360.html' },
+
+    ]
+    var oUl = document.getElementsByTagName('ul')[0],
+        OInput = document.getElementsByClassName('search_box')[0],
+        oP = document.getElementsByTagName('p')[0];
+
+    function renderPage(list) {
+        var str = '';
+        list.forEach((el, index) => {
+            str += `<li>
+            <img src = "./Photo/`+ el.src + `">
+            <p style="font-weight:bold;font-size:18px;" class="ppp" >` + el.name + `</p>
+            <p class="pp">` + el.des + `</p>
+            <button><a href="`+ el.url + `">立即购买</a></button>
+        </li>`
+        });
+        oUl.innerHTML = str
+    }
+    renderPage(placeArr);
+
+    var state = {
+        text: '',
+        type: 'all',
+    }
+    OInput.oninput = function () {
+        state.text = this.value;
+        renderPage(lastFilter())
+    }
+    function filterText(text, arr) {
+        return arr.filter(function (ele, index) {
+            return ele.name.indexOf(text) > -1
+        })
+    }
+    oP.addEventListener('click', function (e) {
+        if (e.target.nodeName == 'SPAN') {
+            state.type = e.target.getAttribute('type');
+            document.getElementsByClassName('active')[0].className = null;
+            e.target.className = 'active';
+            renderPage(lastFilter())
+        }
+    }, false)
+    function filterSex(type, arr) {
+        if (type == 'all') {
+            return arr
+        } else {
+            return arr.filter(function (ele, index) {
+                return type == ele.type
+            })
+        }
+    }
+    function combineFilterFunc(obj, arr) {
+        return function () {
+            var lastArr = arr;
+            for (prop in obj) {
+                lastArr = obj[prop](state[prop], lastArr)
+            }
+            return lastArr
+        }
+    }
+    var lastFilter = combineFilterFunc({ text: filterText, type: filterSex }, placeArr)
+
+</script>
+
+</html>

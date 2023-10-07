@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.seek-conatiner {
+  width: 100%;
+  margin-top: 20px;
+  /* background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%); */
+}
+.seek-conatiner .seek-title {
+  color: #5a5a5a;
+  font-weight: 600;
+  width: 129px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 20px;
+  font-family: "微软雅黑";
+  /* border-bottom: 2px solid #82080ed4; */
+}
+.seek-conatiner .seek-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.seek-conatiner .seek-content li {
+  width: 32%;
+}
+.seek-conatiner .seek-content li a {
+  display: block;
+  font-size: 12px;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.seek-conatiner .seek-content li a .sub-title {
+  text-align: center;
+  width: 100%;
+  line-height: 30px;
+  color: #555;
+  font-family: "微软雅黑";
+  font-size: 16px;
+}
+.seek-conatiner .seek-content li a img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  animation: slideInFromLeft 2s ease;
+  
+}
+.seek-conatiner .seek-content li a .dsc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  white-space: nowrap;
+  width: 100%;
+  line-height: 30px;
+  font-family: "微软雅黑";
+  font-size: 12px;
+  color: #000;
+  border-bottom:1px dashed #ccc;
+}
+.seek-conatiner .seek-content li a .dsc span{
+  width: 90%;
+  white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+i {
+  color: #777;
+  font-style: normal;
+  transform: scale(0.7);
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国家文旅</title>
+    <!-- 顶部，折叠栏2.css -->
+    <link rel="stylesheet" href="./styles/2.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+</head>
+<style>
+    *{
+    margin:0;
+    padding:0;
+}
+.image{
+    float: left;
+    width: 40%;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 8px;
+    transition: transform 1s ease-in-out;
+}
+.wrapper{
+    position: absolute;
+    width: 100%;
+    padding-top: 160px;
+    background-color: #a6c8df00;
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
+
+
+
+.timeline ul {
+  background: #a6c8df40;
+  padding: 50px 0;
+}
+
+.timeline ul li {
+  list-style-type: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background: rgba(255, 166, 0, 0.575);
+}
+
+.timeline ul li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: inherit;
+  z-index: 1;
+}
+
+.timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 15px;
+  background: #ef7d03e4;
+}
+
+.timeline ul li div::before {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timeline ul li:nth-child(odd) div {
+  left: 45px;
+}
+
+.timeline ul li:nth-child(odd) div::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #ef7d03e4 transparent transparent;
+}
+
+.timeline ul li:nth-child(even) div {
+  left: -439px;
+}
+
+.timeline ul li:nth-child(even) div::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #ef7d03e4;
+}
+
+time {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: white;
+}
+
+
+/* EFFECTS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline ul li::after {
+  transition: background 0.5s ease-in-out;
+}
+
+.timeline ul li.in-view::after {
+  background: #ef7d03e4;
+}
+
+.timeline ul li div {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.timeline ul li:nth-child(odd) div {
+  transform: translate3d(200px, 0, 0);
+}
+
+.timeline ul li:nth-child(even) div {
+  transform: translate3d(-200px, 0, 0);
+}
+
+.timeline ul li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media screen and (max-width: 900px) {
+  .timeline ul li div {
+    width: 250px;
+  }
+  .timeline ul li:nth-child(even) div {
+    left: -289px;
+    /*250+45-6*/
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .timeline ul li {
+    margin-left: 20px;
+    color: white;
+  }
+  .timeline ul li div {
+    width: calc(100vw - 91px);
+  }
+  .timeline ul li:nth-child(even) div {
+    left: 45px;
+  }
+  .timeline ul li:nth-child(even) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #ef7d03e4 transparent transparent;
+  }
+}
+
+
+/* EXTRA/CLIP PATH STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.timeline-clippy ul li::after {
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
+}
+
+.timeline-rhombus ul li::after {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.timeline-rhombus ul li div::before {
+  bottom: 12px;
+}
+
+.timeline-star ul li::after {
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.timeline-heptagon ul li::after {
+  clip-path: polygon(
+    50% 0%,
+    90% 20%,
+    100% 60%,
+    75% 100%,
+    25% 100%,
+    0% 60%,
+    10% 20%
+  );
+}
+
+.timeline-infinite ul li::after {
+  animation: scaleAnimation 2s infinite;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.25);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+
+
+
+</style>
+
+<body>
+
+
+  <div class="top sticky">
+    <nav class="navbar bg-dark navbar-dark" style="margin-bottom: 0;">
+        <a class="logo f1" href="./home.html"><img class="topImg" src="./Photo/logo1.png"
+                style="height: 30px;"><span style="color: #989898f5; font-weight: 500;">|</span><img
+                class="topImg" src="./Photo/logo2.png" style="height: 30px;"></a>
+                <a href="./home.html"><svg class="bi bi-box-arrow-left" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="
+                float: right;
+                margin-right: 20px;
+                margin-top: 5px;
+                color: #da9a10;">
+                  <path fill-rule="evenodd" d="M4.354 11.354a.5.5 0 0 0 0-.708L1.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>
+                  <path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0 0 1h9a.5.5 0 0 0 .5-.5z"/>
+                  <path fill-rule="evenodd" d="M14 13.5a1.5 1.5 0 0 0 1.5-1.5V4A1.5 1.5 0 0 0 14 2.5H7A1.5 1.5 0 0 0 5.5 4v1.5a.5.5 0 0 0 1 0V4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-1.5a.5.5 0 0 0-1 0V12A1.5 1.5 0 0 0 7 13.5h7z"/>
+                </svg></a>
+        
+    </nav>
+</div>
+    
+    
+    <div class="wrapper">
+        <img class="image" src="./Photo/国旅1.png">
+        <img class="image" src="./Photo/国旅2.png">
+        <img class="image" src="./Photo/国旅3.png">
+        <img class="image" src="./Photo/国旅4.png">
+        <img class="image" src="./Photo/国旅5.png">
+        <img class="image" src="./Photo/国旅6.png">
+        <img class="image" src="./Photo/国旅7.png">
+        <img class="image" src="./Photo/国旅8.png">
+        <img class="image" src="./Photo/国旅9.png">
+        <img class="image" src="./Photo/国旅10.png">
+    </div>
+    <section class="timeline" style="padding-top: 130px;">
+        <ul>
+          <li>
+            <div>
+              <time>中华文明探源之旅</time> 黄河是中华民族的母亲河，是中华文明最主要的发源地。千百年来，奔腾不息的黄河同长江一起，哺育着中华民族，孕育了中华文明。在我国5000多年文明史上，黄河流域有3000多年是全国政治、经济、文化中心，孕育了河湟文化、河洛文化、关中文化、齐鲁文化等，诞生了“四大发明”和《诗经》《老子》《史记》等经典著作。线路以沿黄省（区）博物馆、重大考古发现和标志性文明遗址遗迹为载体，展现中华文明的形成和发展过程，引领游客开展中华文明探源之旅。
+            </div>
+          </li>
+          <li>
+            <div>
+              <time>黄河寻根问祖之旅</time> 黄河文化是中华文明的重要组成部分，是中华民族的根和魂。早在上古时期，黄河流域就是中华民族繁衍生息的重要家园。远古时期黄河流域炎帝与黄帝被共同尊奉为中华民族的人文初祖，成为中华民族团结、奋斗的精神动力。家族意识和孝悌观念，更是中华民族传统美德和亘古不变的价值观。线路串联伏羲庙、黄河坛、黄帝陵、晋祠、三孔、三孟等标志性文化景观景点，开展面向海内外的寻根问祖活动，打造黄河流域中华人文始祖发源地文化品牌。
+            </div>
+          </li>
+          <li>
+            <div>
+              <time>黄河世界遗产之旅</time> 黄河文化源远流长，黄河景观宏大壮丽，在流域沿线形成了丰富的自然和文化遗产。线路串联莫高窟、九寨沟、兵马俑、五台山、殷墟、泰山等黄河流域的世界文化遗产和世界自然遗产，让人们在领略自然之美中感悟文化之美、陶冶心灵之美，让旅游成为人们感悟中华文化、增强文化自信的过程。
+            </div>
+          </li>
+          <li>
+            <div>
+              <time>黄河生态文化之旅</time> 黄河发源于青藏高原巴颜喀拉山北麓，西接昆仑，北抵阴山，南倚秦岭，东临渤海，从西到东横跨青藏高原、内蒙古高原、黄土高原和华北平原四大地貌单元，沿途有高山、湖泊、草原、湿地、冰川、峡谷、平原等各种景观类型。近年来，黄河沿线各地践行“绿水青山就是金山银山”的理念，全面推进生态文明建设，黄河流域生态环境持续明显向好。游客可欣赏青海湖、黄河九曲第一弯、黄河三峡、壶口瀑布、黄河入海口湿地等标志性自然景观，亲身感受黄河“九曲十八弯”豪放与婉约并存的自然景观特色，深刻领会“两山”理念的科学内涵。
+            </div>
+          </li>
+          <li>
+            <div>
+              <time>黄河安澜文化之旅</time> 大河之治，始于安澜。黄河是中华民族的一条历史之河、文明之河，大河与大国命运交织，流淌在华夏五千年的血脉之中。千百年来治理黄河遗留的水利工程，成为见证黄河水利文化的重要载体。线路以沿黄流域重要水利和防洪灌溉工程等为载体，可让游客欣赏龙羊峡、三门峡、小浪底等水利枢纽“大坝锁黄河，高峡出平湖”的壮丽景观，体验数千年来中国治水哲学和治水历史文化的壮阔画卷，见证中国共产党领导人民开创治黄事业新篇章，创造黄河岁岁安澜的历史奇迹。
+            </div>
+          </li>
+          <li>
+            <div>
+              <time>中国石窟文化之旅</time> 石窟寺作为建筑、雕塑、壁画、书法等艺术的综合体，是我国文物的重要组成部分，亦是文明长河中的璀璨明珠。线路将莫高窟、麦积山石窟、云冈石窟、龙门石窟等著名石窟寺串联起来，使游客可以通过游览石窟寺深入感悟中华民族的审美追求、价值理念、文化精神，了解我国各民族交往交流交融的历史，增强中华民族共同体意识。
+            </div>
+          </li>
+          <li>
+            <div>
+              <time>黄河非遗之旅</time> 黄河川流不息千万年，流淌着中华文明永续不绝的血脉，非物质文化遗产就是伴河而生、绵延相传的人间烟火。热爱生活、勤劳智慧的中华儿女在黄河的孕育下创造出了格萨尔、洮砚、黄河泥埙、唐三彩、朱仙镇木版年画、钧瓷、豫剧、风筝等令人惊叹的作品。该线路串联流域内9个国家级文化生态保护（实验）区，让古老的非遗传递黄河文化的新声，让民族的记忆焕发时代的光彩。
+            </div>
+          </li>
+          <li>
+            <div>
+              <time>红色基因传承之旅</time> 无数革命先烈铸就了黄河流域红色文化基因，线路以全国红色旅游经典景区等为载体，集中展现党的伟大历程和光辉岁月，引导广大人民群众探寻巴西会议旧址、会宁红军长征会师旧址、延安革命纪念馆、淮海战役纪念馆等红色历史遗迹，弘扬长征精神、延安精神、吕梁精神、红旗渠精神、焦裕禄精神等，传承红色基因，赓续红色血脉。
+            </div>
+          </li>
+          <li>
+            <div>
+              <time>黄河古都新城之旅</time> 城市是文明传承核心载体，黄河流域拥有中国八大古都中的五个。该线路以黄河流域历史文化名城为依托，集中展现西安、洛阳、开封、安阳、郑州等黄河流域古都古城的历史文化内涵和现代城市文明成就，让游客体验中华文明五千年的生生不息与新时代建设的辉煌成果。
+            </div>
+          </li>
+          <li>
+            <div>
+              <time>黄河乡村振兴之旅</time> 乡村振兴战略让黄河两岸的村镇脱贫致富，焕发出新的光彩。黄河乡村振兴之旅串联起循化撒拉族自治县街子镇、若尔盖县唐克镇、榆中县青城镇、永宁县闽宁镇、延川县文安驿镇梁家河村、汾阳市杏花村镇、兰考县东坝头乡张庄村、岱岳区大汶口镇等流域内的具有代表性和知名度的全国乡村旅游重点村和历史文化名镇名村，让游客近距离体验最质朴最纯真的黄河文化，感受乡村振兴取得的辉煌成果。
+            </div>
+          </li>
+          
+        </ul>
+      </section>
+     
+</body>
+
+<script>
+    var imgs = document.getElementsByClassName("image");
+var len = imgs.length;
+var current = 0;
+
+var timer;
+
+function wrapper() {
+    frount();
+    bind();
+    autoplay();
+};
+wrapper();
+
+function frount() {
+    var mlen = Math.floor(len/2);
+    var limg , rimg;
+    for(var i=0;i<mlen;i++){
+
+
+        limg = len+current-i-1;
+        rimg = current+i+1;
+
+        if(limg>=len){
+            limg -= len;
+        }
+        if(rimg>=len){
+            rimg -= len;
+        }
+
+        imgs[limg].style.transform= `translateX(`+(-150)*(i+1)+`px) translateZ(`+(200-i*100)+`px) rotateY(30deg)`;
+        imgs[rimg].style.transform = `translateX(`+(150)*(i+1)+`px) translateZ(`+(200-i*100)+`px) rotateY(-30deg)`;
+    }
+    imgs[current].style.transform = `translateZ(300px)`;
+};
+
+function bind() {
+    for(var i=0 ;i<len;i++){
+        (function (i) {
+            imgs[i].onclick=function () {
+                current = i;
+                frount();
+            }
+        })(i);
+        imgs[i].onmouseenter=function () {
+            clearInterval(timer);
+        }
+        imgs[i].onmouseout = function () {
+            autoplay();
+        }
+    }
+};
+
+function autoplay() {
+    timer = setInterval(function () {
+        if(current>=len-1){
+            current=0;
+        }else {
+            current++;
+        }
+        frount();
+    },2000)
+}
+</script>
+
+<script>
+    (function () {
+        var a_idx = 0;
+        window.onclick = function (event) {
+            var a = new Array("❤中华文明探源之旅❤", "❤黄河寻根问祖之旅❤", "❤黄河世界遗产之旅❤", "❤黄河生态文化之旅❤", "❤黄河安澜文化之旅❤", "❤中国石窟文化之旅❤", "❤黄河非遗之旅❤", "❤红色基因传承之旅❤", "❤黄河古都新城之旅❤", "❤黄河乡村振兴之旅❤");
+
+            var heart = document.createElement("b"); //创建b元素
+            heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
+
+            document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+            a_idx = (a_idx + 1) % a.length;
+            heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+
+            var f = 16, // 字体大小
+                x = event.clientX - f / 2, // 横坐标
+                y = event.clientY - f, // 纵坐标
+                c = randomColor(), // 随机颜色
+                a = 1, // 透明度
+                s = 1.2; // 放大缩小
+
+            var timer = setInterval(function () { //添加定时器
+                if (a <= 0) {
+                    document.body.removeChild(heart);
+                    clearInterval(timer);
+                } else {
+                    heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                        c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                        s + ");";
+
+                    y--;
+                    a -= 0.016;
+                    s += 0.002;
+                }
+            }, 15)
+
+        }
+        // 随机颜色
+        function randomColor() {
+
+            return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+            .random() * 255)) + ")";
+
+        }
+    }());
+
+
+    (function () {
+  "use strict";
+
+  // define variables
+  var items = document.querySelectorAll(".timeline li");
+
+  // check if an element is in viewport
+  // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+  function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  function callbackFunc() {
+    for (var i = 0; i < items.length; i++) {
+      if (isElementInViewport(items[i])) {
+        items[i].classList.add("in-view");
+      }
+    }
+  }
+
+  // listen for events
+  window.addEventListener("load", callbackFunc);
+  window.addEventListener("resize", callbackFunc);
+  window.addEventListener("scroll", callbackFunc);
+})();
+</script>
+</html>
